@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auto Sliding Images</title>
+  <style>
+    .slider-wrapper {
+      width: 100%;
+      max-width: 1200px; /* Increased from 900px to 1200px */
+      height: 700px;     /* Increased from 600px to 700px */
+      overflow: hidden;
+      margin: 40px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .slider {
+      display: flex;
+      width: calc(1200px * 10); /* Updated image width */
+      animation: slide 50s linear infinite;
+    }
+
+    .slider img {
+      width: 1200px;   /* Match the new container width */
+      height: 700px;   /* Match the new container height */
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    @keyframes slide {
+      0%   { transform: translateX(0); }
+      2%   { transform: translateX(-1200px); }   /* Fast scroll for first image */
+      12%  { transform: translateX(-1200px); }   /* Pause */
+      22%  { transform: translateX(-2400px); }
+      32%  { transform: translateX(-3600px); }
+      42%  { transform: translateX(-4800px); }
+      52%  { transform: translateX(-6000px); }
+      62%  { transform: translateX(-7200px); }
+      72%  { transform: translateX(-8400px); }
+      82%  { transform: translateX(-9600px); }
+      92%  { transform: translateX(-10800px); }
+      100% { transform: translateX(-10800px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slider-wrapper">
+    <div class="slider" id="slider">
+      <img src="images/img1.JPG" alt="Image 1">
+      <img src="images/img2.JPG" alt="Image 2">
+      <img src="images/img3.JPG" alt="Image 3">
+      <img src="images/img4.JPG" alt="Image 4">
+      <img src="images/img5.JPG" alt="Image 5">
+      <img src="images/img6.JPG" alt="Image 6">
+      <img src="images/img7.JPG" alt="Image 7">
+      <img src="images/img8.JPG" alt="Image 8">
+      <img src="images/img9.JPG" alt="Image 9">
+      <img src="images/img10.JPG" alt="Image 10">
+    </div>
+  </div>
+
+</body>
+</html>
