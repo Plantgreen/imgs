@@ -1,66 +1,53 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Responsive Auto Sliding Images</title>
+  <title>Auto Sliding Images</title>
   <style>
     .slider-wrapper {
       width: 100%;
-      max-width: 100%;
-      aspect-ratio: 16 / 9;
+      max-width: 1200px; /* Increased from 900px to 1200px */
+      height: 700px;     /* Increased from 600px to 700px */
       overflow: hidden;
-      margin: 20px auto;
+      margin: 40px auto;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      position: relative;
     }
 
     .slider {
       display: flex;
-      width: 1000%; /* 10 images x 100% */
+      width: calc(1200px * 10); /* Updated image width */
       animation: slide 50s linear infinite;
     }
 
     .slider img {
-      width: 100%;
-      height: auto;
-      flex-shrink: 0;
+      width: 1200px;   /* Match the new container width */
+      height: 700px;   /* Match the new container height */
       object-fit: cover;
+      flex-shrink: 0;
     }
 
     @keyframes slide {
       0%   { transform: translateX(0); }
-      2%   { transform: translateX(-10%); }
-      12%  { transform: translateX(-10%); }
-      22%  { transform: translateX(-20%); }
-      32%  { transform: translateX(-30%); }
-      42%  { transform: translateX(-40%); }
-      52%  { transform: translateX(-50%); }
-      62%  { transform: translateX(-60%); }
-      72%  { transform: translateX(-70%); }
-      82%  { transform: translateX(-80%); }
-      92%  { transform: translateX(-90%); }
-      100% { transform: translateX(-90%); }
-    }
-
-    /* Adjust aspect ratio for smaller screens */
-    @media (max-width: 768px) {
-      .slider-wrapper {
-        aspect-ratio: 4 / 3;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .slider-wrapper {
-        aspect-ratio: 1 / 1;
-      }
+      2%   { transform: translateX(-1200px); }   /* Fast scroll for first image */
+      12%  { transform: translateX(-1200px); }   /* Pause */
+      22%  { transform: translateX(-2400px); }
+      32%  { transform: translateX(-3600px); }
+      42%  { transform: translateX(-4800px); }
+      52%  { transform: translateX(-6000px); }
+      62%  { transform: translateX(-7200px); }
+      72%  { transform: translateX(-8400px); }
+      82%  { transform: translateX(-9600px); }
+      92%  { transform: translateX(-10800px); }
+      100% { transform: translateX(-10800px); }
     }
   </style>
 </head>
 <body>
 
   <div class="slider-wrapper">
-    <div class="slider">
+    <div class="slider" id="slider">
       <img src="images/img1.JPG" alt="Image 1">
       <img src="images/img2.JPG" alt="Image 2">
       <img src="images/img3.JPG" alt="Image 3">
@@ -69,9 +56,15 @@
       <img src="images/img6.JPG" alt="Image 6">
       <img src="images/img7.JPG" alt="Image 7">
       <img src="images/img8.JPG" alt="Image 8">
-    
+      <img src="images/img9.JPG" alt="Image 9">
+      <img src="images/img10.JPG" alt="Image 10">
     </div>
   </div>
 
 </body>
 </html>
+
+
+
+
+
