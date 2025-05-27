@@ -1,70 +1,105 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Auto Sliding Images</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Image Slider</title>
   <style>
-    .slider-wrapper {
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      padding: 10px;
+    }
+    
+    .slider-container {
       width: 100%;
-      max-width: 1200px; /* Increased from 900px to 1200px */
-      height: 700px;     /* Increased from 600px to 700px */
+      max-width: 1200px;
+      margin: 0 auto;
       overflow: hidden;
-      margin: 40px auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      position: relative;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    .slider {
+    .slider-track {
       display: flex;
-      width: calc(1200px * 10); /* Updated image width */
-      animation: slide 50s linear infinite;
+      height: 60vh; /* Responsive height based on viewport */
+      min-height: 300px; /* Minimum height for small devices */
+      transition: transform 0.5s ease;
     }
 
-    .slider img {
-      width: 1200px;   /* Match the new container width */
-      height: 700px;   /* Match the new container height */
-      object-fit: cover;
-      flex-shrink: 0;
+    .slider-slide {
+      min-width: 100%;
+      position: relative;
     }
 
+    .slider-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Changed from cover to contain to show full images */
+      display: block;
+    }
+
+    /* Animation */
     @keyframes slide {
-      0%   { transform: translateX(0); }
-      2%   { transform: translateX(-1200px); }   /* Fast scroll for first image */
-      12%  { transform: translateX(-1200px); }   /* Pause */
-      22%  { transform: translateX(-2400px); }
-      32%  { transform: translateX(-3600px); }
-      42%  { transform: translateX(-4800px); }
-      52%  { transform: translateX(-6000px); }
-      62%  { transform: translateX(-7200px); }
-      72%  { transform: translateX(-8400px); }
-      82%  { transform: translateX(-9600px); }
-      92%  { transform: translateX(-10800px); }
-      100% { transform: translateX(-10800px); }
+      0% { transform: translateX(0); }
+      10% { transform: translateX(0); }
+      20% { transform: translateX(-100%); }
+      30% { transform: translateX(-100%); }
+      40% { transform: translateX(-200%); }
+      50% { transform: translateX(-200%); }
+      60% { transform: translateX(-300%); }
+      70% { transform: translateX(-300%); }
+      80% { transform: translateX(-400%); }
+      90% { transform: translateX(-400%); }
+      100% { transform: translateX(-500%); }
+    }
+
+    .auto-slide {
+      animation: slide 20s infinite;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .slider-track {
+        height: 50vh;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .slider-track {
+        height: 40vh;
+        min-height: 250px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="slider-wrapper">
-    <div class="slider" id="slider">
-      <img src="images/img1.JPG" alt="Image 1">
-      <img src="images/img2.JPG" alt="Image 2">
-      <img src="images/img3.JPG" alt="Image 3">
-      <img src="images/img4.JPG" alt="Image 4">
-      <img src="images/img5.JPG" alt="Image 5">
-      <img src="images/img6.JPG" alt="Image 6">
-      <img src="images/img7.JPG" alt="Image 7">
-      <img src="images/img8.JPG" alt="Image 8">
-      <img src="images/img9.JPG" alt="Image 9">
-      <img src="images/img10.JPG" alt="Image 10">
+  <div class="slider-container">
+    <div class="slider-track auto-slide">
+      <div class="slider-slide">
+        <img src="images/img1.JPG" alt="Image 1">
+      </div>
+      <div class="slider-slide">
+        <img src="images/img2.JPG" alt="Image 2">
+      </div>
+      <div class="slider-slide">
+        <img src="images/img3.JPG" alt="Image 3">
+      </div>
+      <div class="slider-slide">
+        <img src="images/img4.JPG" alt="Image 4">
+      </div>
+      <div class="slider-slide">
+        <img src="images/img5.JPG" alt="Image 5">
+      </div>
     </div>
   </div>
 
 </body>
 </html>
-
-
-
-
-
