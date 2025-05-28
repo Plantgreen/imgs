@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Image Slider</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      padding: 10px;
+    }
+    
+    .slider-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .slider-track {
+      display: flex;
+      height: 60vh; /* Responsive height based on viewport */
+      min-height: 300px; /* Minimum height for small devices */
+      transition: transform 0.5s ease;
+    }
+
+    .slider-slide {
+      min-width: 100%;
+      position: relative;
+    }
+
+    .slider-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Changed from cover to contain to show full images */
+      display: block;
+    }
+
+    /* Animation */
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      10% { transform: translateX(0); }
+      20% { transform: translateX(-100%); }
+      30% { transform: translateX(-100%); }
+      40% { transform: translateX(-200%); }
+      50% { transform: translateX(-200%); }
+      60% { transform: translateX(-300%); }
+      70% { transform: translateX(-300%); }
+      80% { transform: translateX(-400%); }
+      90% { transform: translateX(-400%); }
+      100% { transform: translateX(-500%); }
+    }
+
+    .auto-slide {
+      animation: slide 20s infinite;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .slider-track {
+        height: 50vh;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .slider-track {
+        height: 40vh;
+        min-height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slider-container">
+    <div class="slider-track auto-slide">
+      <div class="slider-slide">
+        <img src="images/Dr.MGR University.png" alt="Image 1">
+      </div>
+      <div class="slider-slide">
+        <img src="images/Srm University.png" alt="Image 2">
+      </div>
+      <div class="slider-slide">
+        <img src="images/Velammal Institute of Technology.png" alt="Image 3">
+      </div>
+      <div class="slider-slide">
+        <img src="images/Musaliar Institute of Management.png" alt="Image 4">
+      </div>
+      <div class="slider-slide">
+        <img src="images/St.png" alt="Image 5">
+      </div>
+       <div class="slider-slide">
+        <img src="images/women cc.png" alt="Image 6">
+      </div>
+       <!-- <div class="slider-slide">
+        <img src="images/St. Joseph’s College (Arts & Science) new (1).png" alt="Image 7">
+      </div>
+       <div class="slider-slide">
+        <img src="images/Thiruthangal Nadar College.png" alt="Image 8">
+      </div> -->
+    </div>
+  </div>
+
+</body>
+</html>
